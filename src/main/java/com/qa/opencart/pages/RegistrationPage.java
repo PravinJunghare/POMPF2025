@@ -1,5 +1,5 @@
 package com.qa.opencart.pages;
 
-public class Register {
+public class RegistrationPage {
 
 }

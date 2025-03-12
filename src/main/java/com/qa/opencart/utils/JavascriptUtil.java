@@ -1,4 +1,4 @@
-package com.qa.opncart.utils;
+package com.qa.opencart.utils;
 
 public class JavascriptUtil {
 

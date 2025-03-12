@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import com.qa.opencart.base.BaseTest;
 import com.qa.opencart.constants.AppConstant;
+import com.qa.opencart.pages.AccountsPage;
 
 public class LoginPageTest extends BaseTest {
 
@@ -30,8 +31,7 @@ public class LoginPageTest extends BaseTest {
 	@Test(priority = 4)
 	public void loginTest() {
 		// String accpageTitle = loginPage.doLogin("jan2025@gmail.com", "12345");
-		String accpageTitle = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
-		Assert.assertEquals(accpageTitle, AppConstant.ACCOUNTS_PAGE_TITLE_VALUE);
-
+		accountsPage= loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
+		Assert.assertEquals(accountsPage.getAccPageTitle(), AppConstant.ACCOUNTS_PAGE_TITLE_VALUE);
 	}
-}
+	}
