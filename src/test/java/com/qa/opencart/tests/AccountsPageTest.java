@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import com.qa.opencart.base.BaseTest;
 import com.qa.opencart.constants.AppConstant;
+import com.qa.opencart.utils.ExcelUtil;
 
 public class AccountsPageTest extends BaseTest {
 	// Precondition is that user should be login for AccountsPage
@@ -70,14 +71,22 @@ public class AccountsPageTest extends BaseTest {
 		// Assert.assertTrue(searchPage.getSearchProductCount()> 0);
 
 	}
+	// Simple DataProvider
 
 	@DataProvider
-	public Object[][] getProductTestData() {
+	public Object[][] getSearchProductData() {
 		return new Object[][] { { "MacBook", "MacBook Pro" }, { "MacBook", "MacBook Air" }, { "iMac", "iMac" },
 				{ "Apple", "Apple Cinema 30\"" }, };
 	}
+	
+	// @DataProvider Fetching data from excel 
+	@DataProvider
+	public Object[][] getSearchProductExcelData() {
+		return ExcelUtil.getTestData(AppConstant.SEARCH_SHEET_NAME);
+	}
 
-	@Test(dataProvider = "getProductTestData")
+
+	@Test(dataProvider = "getSearchProductExcelData")
 	public void searchProductTest(String searchKey, String productName) {
 		// *****Using dataprovider******//
 		searchPage = accountsPage.doSearch(searchKey);

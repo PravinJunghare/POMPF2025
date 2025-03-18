@@ -64,5 +64,11 @@ public class LoginPage {
 		return new AccountsPage(driver);
 
 	}
+	public RegistrationPage navigateToRegisterPage() {
+		{
+			eleUtil.doClick(registerlink);
+			return new RegistrationPage(driver);
+		}
+	}
 
 }
