@@ -23,18 +23,18 @@ import com.qa.opencart.factory.Driverfactory;
 public class ElementUtil {
 
 	private WebDriver driver;
-	//private JavaScriptUtil jsUtil;
+	private JavaScriptUtil jsUtil;
 
 	public ElementUtil(WebDriver driver) {
 		this.driver = driver;
-		//jsUtil = new JavaScriptUtil(driver);
+		jsUtil = new JavaScriptUtil(driver);
 	}
 
 	public WebElement getElement(By locator) {
 		WebElement element = driver.findElement(locator);
-		//if (Boolean.parseBoolean(Driverfactory.highlight)) {
-		//	jsUtil.flash(element);
-		//}
+		if (Boolean.parseBoolean(Driverfactory.isHighlight)) {
+			jsUtil.flash(element);
+		}
 		return element;
 	}
 

@@ -57,6 +57,7 @@ public class LoginPage {
 		// driver.findElement(username).sendKeys(un);
 		// driver.findElement(password).sendKeys(pwd);
 		// driver.findElement(loginBtn).click();
+		System.out.println("App Credntial are " + un + "+pwd");
 
 		eleUtil.waitForElementVisible(username, AppConstant.DEFAULT_MEDIUM_TIMEOUT).sendKeys(un);
 		eleUtil.doSendKeys(password, pwd);
@@ -64,6 +65,7 @@ public class LoginPage {
 		return new AccountsPage(driver);
 
 	}
+
 	public RegistrationPage navigateToRegisterPage() {
 		{
 			eleUtil.doClick(registerlink);

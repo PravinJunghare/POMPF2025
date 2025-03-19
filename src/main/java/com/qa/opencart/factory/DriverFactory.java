@@ -17,6 +17,7 @@ public class Driverfactory {
 
 	public WebDriver driver;
 	Properties prop;
+	public static String isHighlight;
 
 	/**
 	 * this method is initializing the browser on the basis of browsername
@@ -24,12 +25,14 @@ public class Driverfactory {
 	 * @param browserName
 	 * @return this returns the driver
 	 */
-	//public WebDriver initDriver(String browserName)
-	public WebDriver initDriver(Properties prop)
-	{
+	// public WebDriver initDriver(String browserName)
+	public WebDriver initDriver(Properties prop) {
 
-		 String browserName = prop.getProperty("browser").trim();
+		isHighlight = prop.getProperty("highlight");
+
+		String browserName = prop.getProperty("browser").trim();
 		System.out.println("browsername is :" + browserName);
+
 		if (browserName.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
 		} else if (browserName.trim().equalsIgnoreCase("firefox")) {
@@ -43,8 +46,8 @@ public class Driverfactory {
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		//driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
-		 driver.get(prop.getProperty("url"));
+		// driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
+		driver.get(prop.getProperty("url"));
 		return driver;
 
 	}
@@ -54,20 +57,69 @@ public class Driverfactory {
 	 * 
 	 * @return
 	 */
+
+	// Maven Command mvn clean install -Denv="qa"
 	public Properties initProp()
 
 	{
 		prop = new Properties();
+		FileInputStream ip = null;
+		String envName = System.getProperty("env");
+		System.out.println("Running on Env..." + envName);
+
 		try {
-			FileInputStream ip = new FileInputStream("./src/test/resources/config/config.properties");
+			if (envName == null)
+
+			{
+				System.out.println("No env passed ---Running on QA env");
+				ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+			}
+
+			else {
+				switch (envName.toLowerCase().trim()) {
+				case "qa":
+					ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+					break;
+				case "dev":
+					ip = new FileInputStream("./src/test/resources/config/dev.config.properties");
+					break;
+				case "prod":
+					ip = new FileInputStream("./src/test/resources/config/prod.config.properties");
+					break;
+				default:
+					System.out.println("Please enter Right env" + envName);
+					break;
+				}
+			}
+
 			prop.load(ip);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		return prop;
 	}
+
+	/****
+	 * old method // /** // * This method is reading properties from properties file
+	 * // * // * @return //
+	 */
+//	public Properties initProp()
+//
+//	{
+//		prop = new Properties();
+//		try {
+//			FileInputStream ip = new FileInputStream("./src/test/resources/config/config.properties");
+//			prop.load(ip);
+//
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//		return prop;
+//	}
+//	**/
 
 }
