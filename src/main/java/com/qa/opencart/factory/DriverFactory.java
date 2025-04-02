@@ -155,7 +155,7 @@ public class Driverfactory {
 	 */
 	public static String getScreenshot() {
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
+		String path = System.getProperty("user.dir") + "/screenshot/"+System.currentTimeMillis() + ".png";
 		File destination = new File(path);
 		try {
 			FileUtils.copyFile(srcFile, destination);
@@ -165,5 +165,7 @@ public class Driverfactory {
 		}
 		return path;
 	}
+
+	
 
 }
