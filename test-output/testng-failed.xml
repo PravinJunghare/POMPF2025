@@ -3,6 +3,7 @@
 <suite thread-count="4" parallel="tests" name="Failed suite [Opencart App Test Regression Suite]" guice-stage="DEVELOPMENT" verbose="4">
   <listeners>
     <listener class-name="com.qa.opencart.listeners.ExtentReportListener"/>
+    <listener class-name="com.qa.opencart.listeners.TestAllureListener"/>
   </listeners>
   <test thread-count="4" parallel="tests" name="Login Page Test(failed)" verbose="4">
     <classes>

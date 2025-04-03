@@ -7,9 +7,23 @@ import com.qa.opencart.base.BaseTest;
 import com.qa.opencart.constants.AppConstant;
 import com.qa.opencart.pages.AccountsPage;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
+
 public class LoginPageTest extends BaseTest {
 
+	@Epic("101:Desgin LoginPage")
+	@Feature("Login Feature")
+	@Story("All Feature opencart login page")
+
+	@Severity(SeverityLevel.MINOR)
 	@Test(priority = 1)
+
+	@Step("Getting loginpage title")
 	public void loginPageTitleTest() {
 		String actTitle = loginPage.getLoginPageTitle();
 		Assert.assertEquals(actTitle, AppConstant.LOGIN_PAGE_TITLE_VALUE);
@@ -31,7 +45,7 @@ public class LoginPageTest extends BaseTest {
 	@Test(priority = 4)
 	public void loginTest() {
 		// String accpageTitle = loginPage.doLogin("jan2025@gmail.com", "12345");
-		accountsPage= loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
+		accountsPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 		Assert.assertEquals(accountsPage.getAccPageTitle(), AppConstant.ACCOUNTS_PAGE_TITLE_VALUE);
 	}
-	}
+}

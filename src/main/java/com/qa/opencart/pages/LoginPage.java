@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import com.qa.opencart.constants.AppConstant;
 import com.qa.opencart.utils.ElementUtil;
 
+import io.qameta.allure.Step;
+
 public class LoginPage {
 	private WebDriver driver;
 	private ElementUtil eleUtil;
@@ -25,7 +27,7 @@ public class LoginPage {
 	}
 
 	// 3.Page Actions/Methods
-
+	@Step("Getting loginpage title")
 	public String getLoginPageTitle() {
 		// String title = driver.getTitle();
 		String title = eleUtil.waitForTitleContainsAndFetch(AppConstant.DEFAULT_SHORT_TIMEOUT,
