@@ -23,7 +23,7 @@ public class LoginPageTest extends BaseTest {
 	@Severity(SeverityLevel.MINOR)
 	@Test(priority = 1)
 
-	@Step("Getting loginpage title")
+
 	public void loginPageTitleTest() {
 		String actTitle = loginPage.getLoginPageTitle();
 		Assert.assertEquals(actTitle, AppConstant.LOGIN_PAGE_TITLE_VALUE);
