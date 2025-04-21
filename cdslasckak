@@ -1,0 +1,53 @@
+[33mcommit 0c0da686a76bfbdbb4dd6759996c6bf2f2c78666[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mDay10[m[33m, [m[1;31morigin/Day10[m[33m)[m
+Author: PravinJunghare <pravinjungahre01@gmail.com>
+Date:   Thu Apr 3 16:29:54 2025 +0530
+
+    Added Allure Report
+
+[33mcommit 64c7c019cad30c093283299518956ec85a34ea93[m[33m ([m[1;32mDay8[m[33m)[m
+Author: PravinJunghare <pravinjungahre01@gmail.com>
+Date:   Wed Apr 2 12:35:10 2025 +0530
+
+    Added  Listner,ScreenShot  and Extent Report
+
+[33mcommit 5abfc84594fab1d2d99d1073c8ccdc10e4784f37[m[33m ([m[1;31morigin/Day9[m[33m, [m[1;31morigin/Day8[m[33m, [m[1;32mDay9[m[33m)[m
+Author: PravinJunghare <pravinjungahre01@gmail.com>
+Date:   Wed Mar 26 15:01:38 2025 +0530
+
+    OptionManger and ThreadLocal
+
+[33mcommit 0dbc8d00475b8890aedc7f0a79d4f185284d7c9f[m[33m ([m[1;31morigin/Day7[m[33m, [m[1;32mDay7[m[33m)[m
+Author: PravinJunghare <pravinjungahre01@gmail.com>
+Date:   Wed Mar 19 13:24:44 2025 +0530
+
+    Added MultiEnv Logic by using diff properties file and HighLight Element
+
+[33mcommit b49c2720bf8d31aa2740ea7d8eaebaf688e335a8[m[33m ([m[1;31morigin/Day6[m[33m, [m[1;32mDay6[m[33m)[m
+Author: PravinJunghare <pravinjungahre01@gmail.com>
+Date:   Tue Mar 18 15:09:26 2025 +0530
+
+    Added Excel Integration for RegistrationTest and SearchProductTest
+
+[33mcommit 4b4a8c346511084b4e32636ef3a5ab74880456ba[m[33m ([m[1;31morigin/Day5[m[33m, [m[1;32mDay5[m[33m)[m
+Author: PravinJunghare <pravinjungahre01@gmail.com>
+Date:   Mon Mar 17 16:23:58 2025 +0530
+
+    Added ProductInfoPageTest and SofAssert
+
+[33mcommit 7912f6a65c5b8b2c21349bbbbb55b3bd4d20f9c1[m[33m ([m[1;31morigin/Day4[m[33m, [m[1;32mDay4[m[33m)[m
+Author: PravinJunghare <pravinjungahre01@gmail.com>
+Date:   Wed Mar 12 14:53:55 2025 +0530
+
+    Added SearchPage Test,ProdcutInfoPage and DataProvider
+
+[33mcommit 93f672325f7b242ecb4253124418bcb5c1abf56b[m[33m ([m[1;31morigin/Day3[m[33m, [m[1;31morigin/Day2[m[33m, [m[1;32mDay3[m[33m, [m[1;32mDay2[m[33m)[m
+Author: PravinJunghare <pravinjungahre01@gmail.com>
+Date:   Thu Mar 6 14:35:37 2025 +0530
+
+    Day2- Added Properties file and Constants
+
+[33mcommit b8f31583a8139271fe4885d1f8282a374999b499[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/Day1[m[33m, [m[1;32mmaster[m[33m, [m[1;32mDay1[m[33m)[m
+Author: PravinJunghare <pravinjungahre01@gmail.com>
+Date:   Mon Mar 3 14:54:14 2025 +0530
+
+    Folder Structure
