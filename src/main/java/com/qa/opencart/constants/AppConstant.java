@@ -11,7 +11,7 @@ public class AppConstant {
 	public static final int DEFAULT_LONG_TIMEOUT = 20;
 
 	//********* PAGE CONSTAENTS*****************
-	public static final String LOGIN_PAGE_TITLE_VALUE = "Account Login11";
+	public static final String LOGIN_PAGE_TITLE_VALUE = "Account Login";
 	public static final String LOGIN_PAGE_URL_FRACTION_VALUE = "route=account/login";
 
 	public static final String ACCOUNTS_PAGE_TITLE_VALUE = "My Account";
