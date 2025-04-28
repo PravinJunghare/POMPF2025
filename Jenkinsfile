@@ -1,40 +1,108 @@
-pipeline {
+pipeline 
+{
     agent any
-    stages {
-        stage('Build Project') {
-            steps {
-                echo 'Building Project'
-            }	
+    
+    tools{
+    	maven 'maven'
         }
-        stage('Deploy to Dev env') {
-            steps {
-                echo 'Deploying to Dev env'
+
+    stages 
+    {
+        stage("Build") 
+        {
+            steps
+            {
+                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+            post 
+            {
+                success
+                {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
             }
         }
-           stage('Deploy to QA env') {
-            steps {
-                echo 'Deploying to QA env'
+        
+        
+        
+        stage("Deploy to QA"){
+            steps{
+                echo("deploy to qa")
             }
         }
-           stage('Run Regression Test Cases') {
+        
+        
+                
+        stage("Regression Automation Test") {
             steps {
-                echo 'Running Regression Test Cases '
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    git 'https://github.com/PravinJunghare/POMPF2025.git'
+                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml"
+                    
+                }
             }
         }
-           stage('Deploy to Stage ') {
-            steps {
-                echo 'Deploy to Satge'
+                
+     
+        stage("Publish Allure Reports") {
+           steps {
+                script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: '/allure-results']]
+                    ])
+                }
             }
         }
-           stage('Run Sanity Test Cases') {
-            steps {
-                echo 'Running Sanity Test Cases'
+        
+        
+        stage('Publish Extent Report'){
+            steps{
+                     publishHTML([allowMissing: false,
+                                  alwaysLinkToLastBuild: false, 
+                                  keepAll: true, 
+                                  reportDir: 'reports', 
+                                  reportFiles: 'TestExecutionReport.html', 
+                                  reportName: 'HTML Regression Extent Report', 
+                                  reportTitles: ''])
             }
         }
-           stage('Deploy to Production env') {
-            steps {
-                echo 'Deploying to Production env'
+        
+        stage("Deploy to Stage"){
+            steps{
+                echo("deploy to Stage")
             }
-       } 
+        }
+        
+        stage("Sanity Automation Test") {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    git 'https://github.com/PravinJunghare/POMPF2025.git'
+                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml"
+                    
+                }
+            }
+        }
+        
+        
+        
+        stage("Publish sanity Extent Report"){
+            steps{
+                     publishHTML([allowMissing: false,
+                                  alwaysLinkToLastBuild: false, 
+                                  keepAll: true, 
+                                  reportDir: 'reports', 
+                                  reportFiles: 'TestExecutionReport.html', 
+                                  reportName: 'HTML Sanity Extent Report', 
+                                  reportTitles: ''])
+            }
+        }
+        
+        
     }
 }

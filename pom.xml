@@ -120,7 +120,11 @@
         <version>3.4.0</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>src\test\resources\testrunners\test_sanity.xml</suiteXmlFile>
+            <suiteXmlFile>$<suiteXmlFile></suiteXmlFile></suiteXmlFile>
+            
+        <!--for running multiple testng.xml files in jenkins pipeline use above line-->
+        <!--<suiteXmlFile>src\test\resources\testrunners\test_sanity.xml</suiteXmlFile>-->
+
           </suiteXmlFiles>
         </configuration>
       </plugin>
